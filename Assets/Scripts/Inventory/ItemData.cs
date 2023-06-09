@@ -40,7 +40,7 @@ public class Attribute
 
 public enum AttributeType
 {
-    HP,
+    HP,MANA,STR,RES,DEX
     // TODO
     // Add other attribute types here
 }

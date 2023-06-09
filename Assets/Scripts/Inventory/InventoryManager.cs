@@ -62,6 +62,7 @@ public class InventoryManager : MonoBehaviour
    
     public void AddItem(string itemID)
     {
+        itemDatabase.Add(itemID);
         //TODO
         //1. Cycle through every item in the database until you find the item with the same id.
         //2. Get the index of the InventorySlot that does not have any Item and set its Item to the Item found

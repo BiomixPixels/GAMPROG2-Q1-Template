@@ -5,6 +5,10 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float maxHP;
+    public float maxMana;
+    public float strength;
+    public float resilience;
+    public float dexterity;
     public List<Attribute> attributes;
 
 

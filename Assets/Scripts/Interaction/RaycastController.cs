@@ -30,6 +30,10 @@ public class RaycastController : MonoBehaviour
                 if (distance < raycastDistance)
                 {
                     interactionInfo.text = "E >> " + selectionID.id;
+                    if (selectionID.id == "Door" && !InventoryManager.Instance.HasKey())
+                    {
+                        interactionInfo.text = interactionInfo.text + "\nYou still have no Key.";
+                    }
                     selectionID.Interact();
                 }
             }

@@ -35,6 +35,10 @@ public class Player : MonoBehaviour
                 if (attributes[i].type == att.type)
                 {
                     attributes[i].value += att.value;
+                    if (attributes[i].type == AttributeType.HP && attributes[i].value > maxHP)
+                        attributes[i].value = maxHP;
+                    if (attributes[i].type == AttributeType.MANA && attributes[i].value > maxMana)
+                        attributes[i].value = maxMana;
                 }
             }
         }

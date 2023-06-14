@@ -5,18 +5,32 @@ using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour
 {
-    private ItemData itemData;
+    public ItemData itemData;
     public Image itemIcon;
+
+    private void Start()
+    {
+        itemData = null;
+    }
 
     public void SetItem(ItemData data)
     {
         // TODO
         // Set the item data the and icons here
+        itemData = data;
+        itemIcon.enabled = true;
+        itemIcon.sprite = data.icon; 
     }
 
     public void UseItem()
     {
-        InventoryManager.Instance.UseItem(itemData);
+        if (itemData.type != ItemType.Key)
+        {
+            InventoryManager.Instance.UseItem(itemData);
+            itemIcon.sprite = null;
+            itemIcon.enabled = false;
+            itemData = null;
+        }
         // TODO
         // Reset the item data and the icons here
     }
@@ -24,5 +38,10 @@ public class InventorySlot : MonoBehaviour
     public bool HasItem()
     {
         return itemData != null;
+    }
+
+    public string dataContent()
+    {
+        return itemData.id;
     }
 }
